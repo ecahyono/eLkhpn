@@ -140,7 +140,7 @@ venv.bak/
 .idea
 archive
 .DS_Store
-
+reportresult
 # mypy
 .mypy_cache/
 .dmypy.json
