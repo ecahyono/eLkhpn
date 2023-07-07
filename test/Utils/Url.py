@@ -1,0 +1,18 @@
+import random
+
+masterAgama               = "https://frontend-e-lhkpn.dev.torche.id/administrator/master/agama"
+masterPendidikan          = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterProvinsi            = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterKabupatenKota       = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterMataUang            = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterInstansi            = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterUnitkerja           = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterSubUnitKerja        = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterJabatan             = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterEselon              = "https://frontend-e-lhkpn.dev.torche.id/administrator/master" 
+masterAsalUsulHarta       = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterPemanfaatan         = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterGolonganHarta       = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterJenisBukti          = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterJenisPelepasanHarta = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"
+masterRiwayat             = "https://frontend-e-lhkpn.dev.torche.id/administrator/master"

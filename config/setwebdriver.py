@@ -23,8 +23,7 @@ def initDriver():
         path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
         # jalankan Chrome dengan opsi dan path yang ditentukan
         driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
-
-    driver.get(environ.get("HOST"))
+    # driver.get(environ.get("HOST"))
     driver.maximize_window()
     return driver
 
@@ -55,3 +54,15 @@ def loadDataPath():
 
     data = json.load(file)
     return data
+
+def webfirefox(): #webdriver form firefox
+    if platform.system() == 'Windows':
+        options = FirefoxOptions()
+        # options.add_argument("--headless")
+        driver = webdriver.Firefox(options=options, executable_path=GeckoDriverManager().install())
+    elif platform.system() == 'Darwin':
+        pass
+    # driver.get(environ.get("HOSTKUMBANG"))
+    #driver.get(environ.get("HOST"))
+    driver.maximize_window()
+    return driver

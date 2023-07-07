@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -37,14 +36,8 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-if platform.system() == 'Darwin':
-    sys.path.append(environ.get("MACPARENTDIR")) 
-elif platform.system() == 'Windows':
-    sys.path.append(environ.get("WINPARENTDIR"))
-
-from config.setupbrowser import initDriver, loadDataPath
-from config.inout import *
-from config.button import *
+from setupbrowser import initDriver, loadDataPath
+from userlogin import *
 
 if platform.system() == 'Darwin':
     wb = load_workbook(environ.get("dataexel"))
