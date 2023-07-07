@@ -37,7 +37,6 @@ def secondaryinit():
         path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
         # jalankan Chrome dengan opsi dan path yang ditentukan
         driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
-
     driver.execute_script("window.open('http://srikandi.torche.id')")
     handles = driver.window_handles
     # alihkan fokus ke tab baru
@@ -51,7 +50,6 @@ def loadDataPath():
         file = open(environ.get("WINJSONDATA"), 'r')
     elif platform.system() == 'Darwin':
         file = open(environ.get("MACJSONDATA"), 'r')
-
     data = json.load(file)
     return data
 

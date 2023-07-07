@@ -1,6 +1,7 @@
-from Utils.Url import *
+from config.zlob import *
 
 def masterAgama(driver):
+  
   print('p')
 def masterPendidikan(driver):
   print('p')
