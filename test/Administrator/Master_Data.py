@@ -1,5 +1,3 @@
-from Zombie import *
-
 url = 'https://frontend-e-lhkpn.dev.torche.id/administrator/master'
 
 def masterAgama(driver):
