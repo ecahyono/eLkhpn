@@ -10,4 +10,4 @@ def testconfigandlogin():
 
 @mark.lkhpn
 def testtest():
-  opsi = input('')~
+  opsi = input('')
