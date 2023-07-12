@@ -18,12 +18,14 @@ def initDriver():
     elif platform.system() == 'Windows':
         options = webdriver.ChromeOptions()
         options.page_load_strategy = 'normal'
+        options.add_argument('--ignore-ssl-errors=yes')
+        options.add_argument('--ignore-certificate-errors')
         # options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
         # tentukan path ke driver Chrome
         path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
         # jalankan Chrome dengan opsi dan path yang ditentukan
         driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
-    # driver.get(environ.get("HOST"))
+    driver.get(environ.get("HOST"))
     driver.maximize_window()
     return driver
 
