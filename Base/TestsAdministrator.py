@@ -1,6 +1,6 @@
-from Target.Administratormain import *
-from Target.MasterData import *
-from Target.Listdataadministrator import *
+from Administrator.src import *
+from Administrator.int import *
+from Administrator.MasterData import *
 
 global driver 
 global forkatkun
@@ -11,17 +11,17 @@ def testing():
   driver = initDriver()
   
   forkatkun = input('Pilih Master yang akan DItambah dieksekusi \n'
-        '1. Menu\n'
-        '2. Role\n'
-        '3. User\n'
-        '4. Aktivitas\n'
-        '5. Master Data\n'
-        '6. Setting\n'
-        '7. MonitoringAI\n'
-        '8. Pengumuman\n'
-        '9. API Pengumuman\n'
-        '10. API Instansi\n'
-        '11. FAQ\n'
+        '[1] Menu\n'
+        '[2] Role\n'
+        '[3] User\n'
+        '[4] Aktivitas\n'
+        '[5] Master Data\n'
+        '[6] Setting\n'
+        '[7] MonitoringAI\n'
+        '[8] Pengumuman\n'
+        '[9] API Pengumuman\n'
+        '[10] API Instansi\n'
+        '[11] FAQ\n'
         'Masukan Nomer yang tersedia =>: '  
   )
   if forkatkun == '1':
@@ -33,7 +33,7 @@ def testing():
   elif forkatkun == '4':
     masterKabupatenKota(driver)    
   elif forkatkun == '5':
-    opsitestingmasterdata(driver)    
+    OpsiTestingMasterData(driver)    
   elif forkatkun == '6':
     masterInstansi(driver)    
   elif forkatkun == '7':

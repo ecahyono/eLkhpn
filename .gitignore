@@ -140,6 +140,8 @@ venv.bak/
 archive
 .DS_Store
 reportresult
+Acatatan
+latest_logs
 # mypy
 .mypy_cache/
 .dmypy.json
