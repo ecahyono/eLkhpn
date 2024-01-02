@@ -1,9 +1,10 @@
-from seleniumbase import *
-import time
-import pyautogui
+from seleniumbase import BaseCase
 import sys
-
-sys.path.append('C:/Users/user/Documents/TRCH/KPK/eLkhpn')
+import os
+from dotenv import load_dotenv
+load_dotenv()
+python_path = os.environ.get("PYTHONPATH")
+sys.path.append(python_path)
 from config.userlogin import user
 from config.faker import *
 
@@ -12,9 +13,9 @@ class inputsosialisasi(user):
   def test_sosialisasi(self):
     self.loginapp("test-user", "martanegara")
     self.open("https://frontend.elhkpn.devel.torche-indonesia.com/administrator/e-registration/regulasi-sosialisasi/sosialisasi")
-    time.sleep(3)
+    self.sleep(3)
     self.click('#sosialisasi-button-page-create')
-    time.sleep(2)
+    self.sleep(2)
     self.wait_for_element_clickable('#sosialisasi-dropdown-instansi', timeout=10)
     self.click("#sosialisasi-dropdown-instansi")
     self.click("#sosialisasi-dropdown-instansi_3")

@@ -1,37 +1,32 @@
 from seleniumbase import BaseCase
-import time
+import sys
+import os
+from dotenv import load_dotenv
+load_dotenv()
+python_path = os.environ.get("PYTHONPATH")
+sys.path.append(python_path)
+from config.userlogin import user
+from config.faker import *
 
-class test_individual(BaseCase):
-  def testDPNWLI(self):
-    loginadmin = "test-user"
-    password = "martanegara" 
-
+class test_input(user):
+  def test_MDP(self):
+    self.loginapp("test-user", "martanegara")
+    self.sleep(3)
     UserNIK = "3175071308136667"
     useremail = 'cahlima589@gmail.com'
     usernotelp = '0881022731233'
 
-    self.open("https://frontend.elhkpn.devel.torche-indonesia.com")
-    self.maximize_window()
-    time.sleep(4)
-    self.wait_for_element_present("#cls-popup-lanppg")
-    self.click("#cls-popup-lanppg")
-    self.input("#username", loginadmin)
-    self.input("#password", password)
-    self.click("#sign-in")
-    input("Cek data dulu trus Klik ENTER")
-  
-    time.sleep(4)
     self.get('https://frontend.elhkpn.devel.torche-indonesia.com/administrator/e-registration/kelola-pnwl/daftar-individual')
-    time.sleep(4)
+    self.sleep(4)
     self.click('#daftar-individual-button-page-create')
     self.input('#daftar-individual-input-text-nik', UserNIK)
-    time.sleep(4)
+    self.sleep(4)
     self.input('#daftar-individual-input-text-front_degree',"PN")
     self.input('#daftar-individual-input-text-back_degree',"WL")
     self.input('#daftar-individual-input-text-email', useremail)
     self.input('#daftar-individual-input-text-no_hp', usernotelp)
     self.click('#daftar-individual-button-selanjutnya')
-    time.sleep(4)
+    self.sleep(4)
     self.click('#daftar-individual-dropdown-work_unit_agency')
     self.input('#daftar-individual-input-filter-page-instansi',"kesehatan")
     self.click('#daftar-individual-dropdown-work_unit_agency_1')
