@@ -13,7 +13,8 @@ textfield = fake.text()[:30]
 alamat = fake.address()[:30]
 nik	= fake.msisdn()+"5"f"{1:09}"
 nama = fake.name() 
-telepon = fake.phone_number()
+telepon = fake.phone_number()[:15]
+fake_email = fake.email(domain="gmail.com")
 
 
 nilaiuang = fake.random_int(min=2000000, max=10000000)
@@ -26,7 +27,14 @@ pilihstatuslaporan = random.choice(statuslaporan)
 tanggal_sekarang = datetime.now()
 tanggal_sebelumnya = tanggal_sekarang - timedelta(days=60)
 tglinput = tanggal_sebelumnya.strftime('%d/%m/%Y') 
+tambah1bulan = tanggal_sekarang + timedelta(days=60)
+
+usuami   = tanggal_sekarang - timedelta(days=(35 * 365))
+uistri   = tanggal_sekarang - timedelta(days=(27 * 365))
+uanak    = tanggal_sekarang - timedelta(days=(17 * 365))
+uanakBT  = tanggal_sekarang - timedelta(days=(18 * 365))
+ulainnya = tanggal_sekarang - timedelta(days=(20 * 365))
 
 pilihtahun = 'span[data-pc-section="year"]:contains("2020")'
-kliktanggal = 'td[aria-label="1"]'
+kliktanggal = 'td[aria-label="2"]'
 BesarNilai = "input[placeholder='Masukkan Besar Nilai']"

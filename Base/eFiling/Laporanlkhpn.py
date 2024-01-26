@@ -1,6 +1,4 @@
 from seleniumbase import *
-import time
-import pyautogui
 import sys
 
 sys.path.append('C:/Users/user/Documents/TRCH/KPK/eLkhpn')
@@ -8,27 +6,30 @@ from config.userlogin import user
 from config.faker import *
 from tiapstep import step
 
-userlogin = "3273131107020001"
+userlogin = "3175071308134445"
 
 class efiling(user,step):
   def test_Laporan (self):
-    self.loginapp(userlogin, "Galih@123")
+    self.loginapp(userlogin, "Martanegara@68")
     try:
       buttonedit = "#filling-button-row-edit-0"
-      self.wait_for_element_present(buttonedit)
+      self.wait_for_element_present(buttonedit, timeout=15)
       self.click(buttonedit)
     except:
       butonnew = "#create-new-lhkpn"
       self.click(butonnew)
-      self.wait(1)
-      self.click('[aria-label="Pilih Status"]')
-      self.wait(1)
-      self.click((f'[aria-label="{pilihstatuslaporan}"]'))
-      self.input("#filling-calendar-tanggal-pelaporan", tglinput)
+      self.sleep(1)
+      try:
+        self.click('[aria-label="Pilih Status"]')
+        self.wait(1)
+        self.click((f'[aria-label="{pilihstatuslaporan}"]'))
+        self.input("#filling-calendar-tanggal-pelaporan", tanggal_sekarang)
+      except: 
+        pass
       self.click('#filling-button-modal-next')
 
     # #stepdatapribadi
-    # time.sleep(4)
+    # self.sleep(4)
     # self.type(file_input, file_path)
     # self.input('#datapribadis-inputtext-page-npwp', userlogin)
     # self.click('#btn-next-stp1')
@@ -37,27 +38,38 @@ class efiling(user,step):
     # self.click('#btn-prev-stp1')
       
     # Stepjabatan
-    self.jabatan()
-    # StepKeluarga
-    self.keluarga()
-    # Stepharta
+    # self.click("#efil-stp-2")
+    # self.sleep(4)
+    # self.jabatan()
+    # # StepKeluarga
+    # self.click("#efil-stp-3")
+    # self.sleep(4)
+    # self.keluarga()
+      
+    ############## Stepharta #################
     self.click("#efil-stp-4")
-    time.sleep(4)
-    ######Tanah/Bangunan######
+    self.sleep(4)
+    try: 
+      self.click('[aria-label="Load Data Sebelumnya"]')
+      self.sleep(3)
+      self.click('[aria-label="Periksa Data"]')
+    except:
+      pass
+    #####Tanah/Bangunan######
     self.harta_tanahbangunan()
-    ######Alat Transportasi/Mesin######
+    #####Alat Transportasi/Mesin######
     self.click('#tab-alat-transportasi-mesin')
     self.harta_bergerak()
-    ######Harta Bergerak Lainnya######
+    #####Harta Bergerak Lainnya######
     self.click('#tab-tanah-bergerak-lainnya')
     self.harta_bergeraklainnya()
-    ######Alat surat Berhargan######
+    #####Alat surat Berhargan######
     self.click('#tab-surat-berharga')
     self.harta_suratberharga()
-    ######Alat surat Berhargan######
+    ####Alat surat Berhargan######
     self.click('#tab-kas-setara-kas')
     self.harta_kassetarakas()
-    ######Alat surat Berhargan######
+    #####Alat surat Berhargan######
     self.click('#tab-harta-lainnya')
     self.harta_lainnya()
     ######HUTANG######
@@ -66,10 +78,10 @@ class efiling(user,step):
 
     # Step 5
     self.click("#efil-stp-5")
-    time.sleep(4)
+    self.sleep(4)
     klilpopup = "#penerimaan-button-modal-success-edit"
     pengeluaranpupop = "#pengeluaran-button-modal-success-edit"
-    nilai = "5000000"
+    nilai = f'{nilaiuang}'
     h1_selector = '.text-2xl.font-semibold'
 
     #kolompn
@@ -118,7 +130,7 @@ class efiling(user,step):
 
     # Step 6
     self.click("#efil-stp-6")
-    time.sleep(4)
+    self.sleep(4)
 
     num_elements4 = 4
     for index4 in range(num_elements4):
@@ -156,19 +168,11 @@ class efiling(user,step):
 
     # Step 7
     # self.click("#efil-stp-7")
-    # time.sleep(4)
+    # self.sleep(4)
     # Step 8
     self.click("#efil-stp-8")
-    time.sleep(4)
-    for r in range(2):
-      self.click("#btn-create-lampiran-fasilitas")
-      self.click("#fasilitas-dropdown-jenis")
-      self.click("#fasilitas-dropdown-jenis_0")
-      self.input("//textarea","Keterangan Fasilitas")
-      self.input("//input[@id='fasilitas-input-text-nama-pihak-pemberi-fasilitas']","Nama pemberi")
-      self.input("#fasilitas-text-area-keterangan-lain","Keterangan Lainnya")
-      self.click('#fasilitas-button-modal-save')
-      time.sleep(4)
+    self.sleep(4)
+    self.lampiranfasilitas()
 
 
 

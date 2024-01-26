@@ -1,5 +1,4 @@
 from seleniumbase import BaseCase
-import time
 import pandas as pd
 
 class readfile(BaseCase):

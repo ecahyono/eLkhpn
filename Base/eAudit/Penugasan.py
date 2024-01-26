@@ -1,5 +1,5 @@
 from seleniumbase import BaseCase
-import time
+
 from faker import Faker
 import sys
 sys.path.append('C:/Users/user/Documents/TRCH/KPK/eLkhpn')
@@ -14,7 +14,7 @@ class input(user):
   def test_MDP(self):  
     self.loginapp("test-user", "martanegara")
     self.open("https://frontend.elhkpn.devel.torche-indonesia.com/administrator/e-audit/penugasan")
-    time.sleep(3)
+    self.sleep(3)
     self.click('#penugasan-input-dropdown-page-status-penugasan')
-    time.sleep(2)
+    self.sleep(2)
 

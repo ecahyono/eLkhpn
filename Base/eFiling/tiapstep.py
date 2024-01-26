@@ -9,9 +9,7 @@ from config.faker import *
 
 class step(BaseCase):
   def jabatan(self):
-    self.click("#efil-stp-2")
-    self.sleep(4)
-    for c in range(2):
+    for c in range(1):
       self.click('#btn-create-rangkap-jabatan')
       self.sleep(4)
       self.click('#jabatan-dropdown-lembaga')
@@ -26,29 +24,34 @@ class step(BaseCase):
       self.click('#jabatan-button-modal-save')
       self.sleep(2)
   def keluarga(self):
-    self.click("#efil-stp-3")
-    self.sleep(4)
-    self.click('#data-keluarga-button-page-tambah-data-keluarga')
-    self.click('#data-keluarga-input-radio-page-kewarganegaraan')
-    self.input('#data-keluarga-input-text-page-nik', nik)
-    self.input('#data-keluarga-input-text-page-nama', nama)
-    self.click('#data-keluarga-dropdown-page-hubungan')
-    self.click('#data-keluarga-dropdown-page-hubungan_4')
-    self.click('#data-keluarga-input-text-page-tempat-lahir', alamat)
-    self.click('#data-keluarga-input-calendar-page-tanggal-lahir', '01/01/2000')
-    self.click('#data-keluarga-dropdown-page-hubungan_4')
-    self.click('#data-keluarga-input-radio-page-jenis-kelamin')
-    self.click('#data-keluarga-input-text-page-pekerjaan', alamat)
-    self.click('#data-keluarga-input-text-page-nomor-handphone', telepon)
-    self.click('#data-keluarga-input-text-page-alamat', alamat)
-    self.click('#data-keluarga-button-modal-save')
+    listtgl = [usuami,uistri,uanak,uanakBT,ulainnya]
+    for a in range(4):
+      self.click('#data-keluarga-button-page-tambah-data-keluarga')
+      self.sleep(3)
+      self.click(".p-hidden-accessible #data-keluarga-input-radio-jenis-kewarganegaraan-wni")
+      self.input('#data-keluarga-input-text-page-nik', nik)
+      self.input('#data-keluarga-input-text-page-nama', nama)
+      self.click('#data-keluarga-dropdown-page-hubungan')
+      self.click(f'#data-keluarga-dropdown-page-hubungan_{a}')
+      self.input('#data-keluarga-input-text-page-tempat-lahir', alamat)
+      print(listtgl)
+      input('leriufbsldjfbsdlfuukhnldfsk')
+      self.input('#data-keluarga-input-calendar-page-tanggal-lahir',f'{listtgl}')
+      # self.click('#data-keluarga-input-radio-jenis-kelamin-perempuan')
+      self.click('#data-keluarga-input-radio-jenis-kelamin-laki-laki')
+      self.input('#data-keluarga-input-text-page-pekerjaan', alamat)
+      self.input('#data-keluarga-input-text-page-nomor-handphone', telepon)
+      # self.input('#data-keluarga-input-text-page-alamat', alamat)
+      self.click('#data-keluarga-input-text-page-alamat')
+      self.click('#data-keluarga-button-modal-save')
   def harta_tanahbangunan(self):
     butonselanjutnya = "#tanah-bangunan-button-selanjutnya"
     ######Tanah/Bangunan######
     # self.click("#tanah-bangunan-btn-ambil-data-dari-bpn")
     # input("EDIT SENDIRI Data Dari BPN nya oke klo udah klik ENTER")
-    for i in range(3):
+    for i in range(1):
       self.click("#tanah-bangunan-btn-create")
+      self.sleep(2)
       self.click("#tanah-bangunan-dropdown-country-from")
       self.click("#tanah-bangunan-dropdown-country-from_0")
       self.click("#tanah-bangunan-dropdown-provinsi")
@@ -91,7 +94,7 @@ class step(BaseCase):
         self.click(checkbox_id)
         self.click(TanggalTransaksi)
         self.click(kliktanggal)
-        self.input(BesarNilai,"5000000")
+        self.input(BesarNilai,nilaiuang)
         self.input(keterangan,"Asal Usul Harta")
         self.input(namapihk2,"Pemberi Harta")
         self.input(alamatpihk2,"Alamat Pemberi Harta")
@@ -102,18 +105,19 @@ class step(BaseCase):
       self.click("#tanah-bangunan-input-checkbox-pemanfaatan-disewakan")
       self.click("#tanah-bangunan-input-checkbox-pemanfaatan-pertanian")
       self.click("#tanah-bangunan-input-checkbox-pemanfaatan-lainnya")
-      self.input("input[placeholder='Masukkan Nilai Perolehan']", "2500000")
-      self.input("input[placeholder='Masukkan Nilai Esitimasi Saat Pelaporan']", "2500000")
+      self.input("input[placeholder='Masukkan Nilai Perolehan']", nilaiuang)
+      self.input("input[placeholder='Masukkan Nilai Esitimasi Saat Pelaporan']", nilaiuang)
       self.click("#tanah-bangunan-input-calendar-acquisition_year")
       self.click(pilihtahun)
       self.click(modalsavebtn)
-      self.sleep(5)
+      self.sleep(3)
   def harta_bergerak(self):
     tab2selanjutnya = "#harta-bergerak-button-selanjutnya"
     # self.click("#harta-bergerak-btn-ambil-data-dari-bapenda")
     # input("EDIT SENDIRI Data Dari BPN nya oke klo udah klik ENTER")
-    for j in range (2):
+    for j in range (1):
       self.click("#harta-bergerak-btn-create")
+      self.sleep(2)
       self.click("#harta-bergerak-dropdown-asset-type")
       self.click("#harta-bergerak-dropdown-asset-type_0")
       self.input("#harta-bergerak-input-text-brand", "Transportasi")
@@ -148,7 +152,7 @@ class step(BaseCase):
         self.click(checkbox_id2)
         self.click(TanggalTransaksi2)
         self.click(kliktanggal)
-        self.input(BesarNilai,"5000000")
+        self.input(BesarNilai,nilaiuang)
         self.input(keterangan2,"Asal Usul Harta")
         self.input(namapihk22,"Pemberi Harta")
         self.input(alamatpihk22,"Alamat Pemberi Harta")
@@ -157,15 +161,16 @@ class step(BaseCase):
       self.click(tab2selanjutnya)
       self.click("#harta-bergerak-dropdown-utilization")
       self.click("#harta-bergerak-dropdown-utilization_0")
-      self.input("input[placeholder='Masukkan Nilai Perolehan']", "2500000")
-      self.input("input[placeholder='Masukkan Nilai Esitimasi Saat Pelaporan']", "2500000")
+      self.input("input[placeholder='Masukkan Nilai Perolehan']", nilaiuang)
+      self.input("input[placeholder='Masukkan Nilai Esitimasi Saat Pelaporan']", nilaiuang)
       self.click("#harta-bergerak-input-calendar-early_acquisition_year")
       self.click(pilihtahun)
       self.click(modalsavebtn2)
-      self.sleep(5)
+      self.sleep(3)
   def harta_bergeraklainnya(self):
-    for k in range (2):
+    for k in range (1):
       self.click("#harta-bergerak-lainnya-btn-create")
+      self.sleep(2)
       self.click("#harta-bergerak-lainnya-dropdown-asset-type")
       self.click("#harta-bergerak-lainnya-dropdown-asset-type_0")
       self.input("input[placeholder='Masukkan Jumlah']","10")
@@ -190,20 +195,21 @@ class step(BaseCase):
         self.click(checkbox_id3)
         self.click(TanggalTransaksi3)
         self.click(kliktanggal)
-        self.input(BesarNilai,"5000000")
+        self.input(BesarNilai,nilaiuang)
         self.input(keterangan3,"Asal Usul Harta")
         self.input(namapihk23,"Pemberi Harta")
         self.input(alamatpihk23,"Alamat Pemberi Harta")
         self.click(modalsavebtn3)
       
-      self.input("input[placeholder='Masukkan Nilai Perolehan']", "2500000")
-      self.input("input[placeholder='Masukkan Nilai Estimasi Saat Laporan']","2500000")
+      self.input("input[placeholder='Masukkan Nilai Perolehan']", nilaiuang)
+      self.input("input[placeholder='Masukkan Nilai Estimasi Saat Laporan']",nilaiuang)
       self.click("#harta-bergerak-lainnya-button-modal-create")
-      self.sleep(4)
+      self.sleep(3)
   def harta_suratberharga(self):
     tab4selanjutnya = "#surat-berharga-button-selanjutnya"
-    for l in range(2):
+    for l in range(1):
       self.click('#surat-berharga-btn-create')
+      self.sleep(2)
       self.input("#surat-berharga-input-text-account_number","497066923")
       self.type(file_input, file_path)
       self.click('#surat-berharga-dropdown-asset-type')
@@ -234,28 +240,29 @@ class step(BaseCase):
         self.click(checkbox_id4)
         self.click(TanggalTransaksi4)
         self.click(kliktanggal)
-        self.input(BesarNilai,"5000000")
+        self.input(BesarNilai,nilaiuang)
         self.input(keterangan4,"Asal Usul Harta")
         self.input(namapihk24,"Pemberi Harta")
         self.input(alamatpihk24,"Alamat Pemberi Harta")
         self.click(modalsavebtn4)
 
       self.click(tab4selanjutnya)
-      self.input("input[placeholder='Masukkan Nilai Perolehan']","2500000")
-      self.input("input[placeholder='Masukkan Nilai Esitimasi Saat Pelaporan']","2500000")
+      self.input("input[placeholder='Masukkan Nilai Perolehan']",nilaiuang)
+      self.input("input[placeholder='Masukkan Nilai Esitimasi Saat Pelaporan']",nilaiuang)
       self.click("#surat-berharga-input-calendar-early_acquisition_year")
       self.click(pilihtahun)
       self.click(modalsavebtn4)
-      self.sleep(4)
+      self.sleep(3)
   def harta_kassetarakas(self):
     tab3selanjutnya2 = "#harta-kas-button-selanjutnya"
-    for m in range(2):
+    for m in range(1):
       self.click("#harta-kas-btn-create")
+      self.sleep(2)
       self.click("#harta-kas-dropdown-asset-type")
-      self.click("#harta-kas-dropdown-asset-type_0")
+      self.click("#harta-kas-dropdown-asset-type_1")
       self.type(file_input, file_path)
       self.input("#harta-kas-input-text-bank_name","KPK BANK")
-      self.input("#harta-kas-input-text-number_account","45597909")
+      self.input("#harta-kas-input-text-number_account",telepon)
       self.click("#harta-kas-input-calendar-open_account_year")
       self.click(pilihtahun)
       self.click("#harta-kas-input-checkbox-atas-nama-pn_yang_bersangkutan")
@@ -268,20 +275,20 @@ class step(BaseCase):
       TanggalTransaksi5 = "#harta-kas-input-calendar-transaction_date"
       keterangan5       = "#harta-kas-input-text-asset_description"
       namapihk25        = "#harta-kas-input-text-name"
-      alamatpihk25      ="#harta-kas-input-text-address"
+      alamatpihk25      = "#harta-kas-input-text-address"
       modalsavebtn5     = '#harta-kas-button-modal-save'
 
-      list_checkbox5    = ["#harta-kas-input-checkbox-asal-usul-warisan"]
+      list_checkbox5    = ['#harta-kas-input-checkbox-asal-usul-lainnya']
                         # '#harta-kas-input-checkbox-asal-usul-hibah_dengan_akta',
                         # '#harta-kas-input-checkbox-asal-usul-hibah_tanpa_akta',
                         # '#harta-kas-input-checkbox-asal-usul-hadiah',
-                        # '#harta-kas-input-checkbox-asal-usul-lainnya']
+                        # "#harta-kas-input-checkbox-asal-usul-warisan"]
 
       for checkbox_id5 in list_checkbox5:
         self.click(checkbox_id5)
         self.click(TanggalTransaksi5)
         self.click(kliktanggal)
-        self.input(BesarNilai,"5000000")
+        self.input(BesarNilai,nilaiuang)
         self.input(keterangan5,"Asal Usul Harta")
         self.input(namapihk25,"Pemberi Harta")
         self.input(alamatpihk25,"Alamat Pemberi Harta")
@@ -290,10 +297,11 @@ class step(BaseCase):
       self.wait_for_element_clickable("#harta-kas-input-number-balance_value",timeout=20)
       self.type("#harta-kas-input-number-balance_value","25000000")
       self.click(modalsavebtn5)
-      self.sleep(4)
+      self.sleep(3)
   def harta_lainnya(self):
-    for g in range(2):
+    for g in range(1):
       self.click("#harta-lainnya-btn-create")
+      self.sleep(2)
       self.click('#harta-lainnya-dropdown-asset-type')
       self.click('#harta-lainnya-dropdown-asset-type_0')
       self.type(file_input, file_path)
@@ -317,18 +325,18 @@ class step(BaseCase):
         self.click(checkbox_id6)
         self.click(TanggalTransaksi6)
         self.click(kliktanggal)
-        self.input(BesarNilai,"5000000")
+        self.input(BesarNilai,nilaiuang)
         self.input(keterangan6,"Asal Usul Harta")
         self.input(namapihk26,"Pemberi Harta")
         self.input(alamatpihk26,"Alamat Pemberi Harta")
         self.click(modalsavebtn6)
 
-      self.input("input[placeholder='Masukkan Nilai Perolehan']","2500000")
-      self.input("input[placeholder='Masukkan Nilai Estimasi Saat Laporan']","2500000")
+      self.input("input[placeholder='Masukkan Nilai Perolehan']",nilaiuang)
+      self.input("input[placeholder='Masukkan Nilai Estimasi Saat Laporan']",nilaiuang)
       self.click("#harta-lainnya-button-modal-create")
-      self.sleep(4) 
+      self.sleep(3) 
   def harta_hutang(self):
-     for b in range (2):
+     for b in range (1):
       self.click("#hutang-btn-create")
       self.click("#hutang-dropdown-asset-type")
       self.click("#hutang-dropdown-asset-type_0")
@@ -340,9 +348,20 @@ class step(BaseCase):
       # self.input('#hutang-input-text-other_information', 'nama orang')
       self.input('#hutang-input-text-creditor_name', 'nama orang')
       self.input('#hutang-input-text-collateral', 'Bangunan Tinggi')
-      # self.input("hutang-input-text-beginning_of_debt","2500000")
+      # self.input("hutang-input-text-beginning_of_debt",nilaiuang)
       self.type("input[placeholder='Masukkan Nilai Awal Hutang']", "500000")
       self.type("input[placeholder='Masukkan Nilai Saldo Hutang']", "500000")
-      # self.input("hutang-input-text-debt_balance","2500000")
+      # self.input("hutang-input-text-debt_balance",nilaiuang)
       self.click("#hutang-button-modal-create")
-      self.sleep(4)  
+      self.sleep(3)  
+  def lampiranfasilitas(self):
+    for r in range(1):
+      self.click("#btn-create-lampiran-fasilitas")
+      self.sleep(2)
+      self.click("#fasilitas-dropdown-jenis")
+      self.click("#fasilitas-dropdown-jenis_0")
+      self.input("//textarea","Keterangan Fasilitas")
+      self.input("//input[@id='fasilitas-input-text-nama-pihak-pemberi-fasilitas']","Nama pemberi")
+      self.input("#fasilitas-text-area-keterangan-lain","Keterangan Lainnya")
+      self.click('#fasilitas-button-modal-save')
+      self.sleep(3)

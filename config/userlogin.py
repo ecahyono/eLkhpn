@@ -1,5 +1,4 @@
 from seleniumbase import BaseCase
-import time
 
 class user(BaseCase):
   def loginapp(self, username, password):
@@ -12,4 +11,7 @@ class user(BaseCase):
     self.input("#password", password)
   
     self.click("#sign-in")
-    time.sleep(3)
+    self.sleep(3)
+    popup = "#cls-popup-lanppg"
+    self.wait_for_element_present(popup)
+    self.click(popup)
