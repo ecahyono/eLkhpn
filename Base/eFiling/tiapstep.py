@@ -6,9 +6,11 @@ load_dotenv()
 python_path = os.environ.get("PYTHONPATH")
 sys.path.append(python_path)
 from config.faker import *
+from config.readdataexternal import readfile
 
-class step(BaseCase):
+class step(readfile):
   def jabatan(self):
+    self.custom_wait_for_element('#tanah-bangunan-btn-ambil-data-dari-bpn')
     for c in range(1):
       self.click('#btn-create-rangkap-jabatan')
       self.sleep(4)

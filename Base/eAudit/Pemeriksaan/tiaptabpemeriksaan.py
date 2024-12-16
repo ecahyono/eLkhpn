@@ -44,10 +44,12 @@ class tiaptabpemeriksaan(BaseCase):
   
   def kladatapribadi(self):
     self.click('#data-pribadi-button-page-edit')
+    self.sleep(2)
+    self.input('#data-pribadi-input-text-page-no-kk', nik)
     self.input('#data-pribadi-textarea-page-alamat-domisili', alamat)
     self.click('#data-pribadi-button-modal-save')
   def klaJabatan(self):
-    for c in range(2):
+    for c in range(1):
       self.click('#jabatan-button-rangkap-jabatan')
       self.sleep(4)
       self.click('#jabatan-dropdown-lembaga')
@@ -67,14 +69,21 @@ class tiaptabpemeriksaan(BaseCase):
     self.input('#families-input-text-page-nama', nama)
     self.click('#families-dropdown-page-hubungan')
     self.click('#families-dropdown-page-hubungan_4')
-    self.input('#families-input-text-page-tempat-lahir', alamat)
+    self.sleep(3)
+    self.type('#families-input-text-page-tempat-lahir', alamat)
+    self.sleep(3)
     self.click('#families-input-calendar-page-tanggal-lahir')
     self.sleep(3)
     self.click(kliktanggal)
-    self.click('#families-input-radio-page-jenis-kelamin')
-    self.input('#families-input-text-page-pekerjaan', alamat)
+    self.sleep(3)
+    self.click('//label[contains(.,"Laki-laki")]')
+    self.sleep(3)
+    self.input('#families-input-text-page-pekerjaan', "BEKERJA")
     self.input('#families-input-text-page-nomor-handphone', telepon)
+    self.sleep(3)
     self.input('#families-input-text-page-alamat', alamat)
     self.click('#families-button-modal-save')
+  def klaharTB(self):
+    self.click('#')
 
 

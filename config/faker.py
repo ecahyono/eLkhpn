@@ -15,6 +15,7 @@ nik	= fake.msisdn()+"5"f"{1:09}"
 nama = fake.name() 
 telepon = fake.phone_number()[:15]
 fake_email = fake.email(domain="gmail.com")
+fakeurl = fake.email(domain="tcp.uri")
 
 
 nilaiuang = fake.random_int(min=2000000, max=10000000)
@@ -38,3 +39,6 @@ ulainnya = tanggal_sekarang - timedelta(days=(20 * 365))
 pilihtahun = 'span[data-pc-section="year"]:contains("2020")'
 kliktanggal = 'td[aria-label="2"]'
 BesarNilai = "input[placeholder='Masukkan Besar Nilai']"
+
+UserNIK = '3303011190110011'
+useremail = 'sembilancah@gmail.com'

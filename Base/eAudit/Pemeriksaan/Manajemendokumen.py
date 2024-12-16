@@ -15,17 +15,18 @@ class test_input(user):
     #Manajemen Dokumen
     url = 'https://frontend.elhkpn.devel.torche-indonesia.com/administrator/e-audit/pemeriksaan'
     self.open(url)
+    # self.sleep(3)
+    # for k in range(0,5):
+    #   try:
+    #     idbutton= f'audit-button-action-manajemen-dokumen-{k}'
+    #     self.wait_for_element(f'#{idbutton}')
+    #     print(f'Tombol {idbutton} ketemu di baris {k}')
+    #     self.click(f'#{idbutton}')
+    #   except:
+    #     print(f"Tombol {idbutton} Tidak nemu. Kalem lagi dicari.")  
+    #   break       
     self.sleep(3)
-    for k in range(0,5):
-      try:
-        idbutton= f'audit-button-action-manajemen-dokumen-{k}'
-        self.wait_for_element(f'#{idbutton}')
-        print(f'Tombol {idbutton} ketemu di baris {k}')
-        self.click(f'#{idbutton}')
-      except:
-        print(f"Tombol {idbutton} Tidak nemu. Kalem lagi dicari.")  
-      break       
-    self.sleep(3)
+    self.click('#audit-button-action-manajemen-dokumen-0')
     for i in range(10):
       self.click('#manajemen-dokumen-button-page-create')
       self.type('#manajemen-dokumen-input-text-document_name','Dokumen Contoh')

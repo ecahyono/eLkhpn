@@ -8,14 +8,10 @@ python_path = os.environ.get("PYTHONPATH")
 sys.path.append(python_path)
 
 from config.userlogin import user
-# from config.readdataexternal import readfile
+from config.readdataexternal import readfile
 from config.faker import *
 
-class MyTestClass(user):
-  def read_data_from_excel(self, excel_path, sheet_name):
-    # Read data from Excel using pandas
-    df = pd.read_excel(excel_path, sheet_name=sheet_name)
-    return df   
+class MyTestClass(user,readfile):
   def test_fill_form_from_excel(self):
     self.loginapp("test-user", "martanegara")
     self.sleep(3)

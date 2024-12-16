@@ -7,29 +7,23 @@ load_dotenv()
 python_path = os.environ.get("PYTHONPATH")
 sys.path.append(python_path)
 from config.userlogin import user
-from config.readdataexternal import readfile
-from config.faker import *
+from tiaptabpemeriksaan import tiaptabpemeriksaan
 sys.path.append(os.environ.get("BASEPATH"))
 from eFiling.tiapstep import step
 
-from Base.eAudit.Pemeriksaan.tiaptabpemeriksaan import tiaptabpemeriksaan
 
-class inputklarifikasi(user, readfile, step, tiaptabpemeriksaan):
+class inputklarifikasi(user, tiaptabpemeriksaan, step):
   def test_klarifikasi(self):
     self.loginapp("checking", "Martanegara@68")
     self.sleep(3)
     url = 'https://frontend.elhkpn.devel.torche-indonesia.com/administrator/e-audit/pemeriksaan'
     self.open(url)
     self.sleep(2)
-    # self.cetakKKP()
-    # self.inputtanggalklarifikasi()
-    # self.inputhasilklarifikasi()
-      
-
-
+    print('Pilih dat ayang akan di klarifikasi=======')
+    input("jika sudah masuk Halman Input Klarifikasi tekan ENTER===")
     # # datapribadi
     # self.kladatapribadi()
-    # #Jabatan
+    # # #Jabatan
     # self.click('#tab-jabatan')
     # self.klaJabatan()
     # keluarga
@@ -93,8 +87,8 @@ class inputklarifikasi(user, readfile, step, tiaptabpemeriksaan):
     #   self.type(incat, nilaiuang)
     # self.click('#lainnya-button-save')
 
-    self.click('#tab-fasilitas')
-    self.lampiranfasilitas()
+    # self.click('#tab-fasilitas')
+    # self.lampiranfasilitas()
 
     # self.click('#tab-catatan')
     # self.input('#catatan-input-text-catatan-pemeriksaan', alamat, tanggal_sebelumnya)
